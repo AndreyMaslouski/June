@@ -44,6 +44,35 @@ my_dream_1.get_class_details("Audi A8")
 
 River.staticmethod()
 
+# Class Method
+
+class MyFuture():
+    TOTAL_OBJECTS = -1
+
+    def __init__(self):
+        MyFuture.TOTAL_OBJECTS = MyFuture.TOTAL_OBJECTS + 1
+
+    @classmethod
+    def total_objects(cls):
+        print("Total objects: ", cls.TOTAL_OBJECTS)
+
+
+class ChildClass(MyFuture):
+    def __init__(self):
+        ChildClass.TOTAL_OBJECTS = ChildClass.TOTAL_OBJECTS + 1
+
+    pass
+
+# Создаем объекты
+my_obj1 = ChildClass()
+my_obj2 = MyFuture()
+my_obj3 = MyFuture()
+# Вызываем classmethod
+ChildClass.total_objects()
+MyFuture.total_objects()
+
+
+
 
 
 
