@@ -9,6 +9,9 @@ class children_My_class(MyClass):
     pass
 my_obj = MyClass()
 my_obj.staticmethod()
+my_obj_1=children_My_class()
+my_obj_1.staticmethod()
+
 
 # class Calc:
 
