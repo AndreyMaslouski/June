@@ -28,3 +28,4 @@ person_2 = Person("Никита")
 person_2.Info()
 
 
+
