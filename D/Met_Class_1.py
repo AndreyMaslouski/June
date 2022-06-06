@@ -29,20 +29,20 @@ person_2.Info()
 # Статический метод
 class River:
     @staticmethod
-    def get_class_details():
+    def staticmethod():
         print("Это класс River")
 
 class Car(River):
-    def staticmethod(self):
+    def get_class_details(self):
         print("Это класс Car")
 
 
 my_dream = River
-my_dream.get_class_details()
+my_dream.staticmethod()
 my_dream_1 = Car
-my_dream_1.staticmethod("BMW")
+my_dream_1.get_class_details("Audi A8")
 
-River.get_class_details()
+River.staticmethod()
 
 
 
