@@ -17,3 +17,7 @@ class Rectangle:
 
     def area(self):
         return self._width*self._height
+
+rect=Rectangle(10,20)
+rect.get_width()
+rect._width
