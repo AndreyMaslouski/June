@@ -2,31 +2,27 @@
 
 class Example:
     def __init__(self,tea,coffee,area,tea_1,coffee_1):      # __init__ private level
-        self._coffee = coffee_1
-        self._tea = tea_1
-        self.__tea = tea
+        self._coffee = coffee_1           # protected
+        self._tea = tea_1                 # protected
+        self.__tea = tea                  # private
         self.__coffee = coffee            # private
-        self.__area = area
-    def get_tea(self):
+        self.__area = area                # private
+    def get_tea(self):                    # public
         return self.__tea                 # private
 
-    def main_team(self):
+    def main_team(self):                  # public
         return self._tea                  # protected
 
-    def set_tea(self,t):
-        self.__tea = t                    # private
 
-    def get_coffee(self):
+    def get_coffee(self):                # public
         return self.__coffee             # private
 
-    def coffee_team(self):
-        return self._coffee               #protected
+    def coffee_team(self):               # public
+        return self._coffee              #protected
 
-    def set_coffee(self,c):
-        self.__coffee = c                 # private
 
-    def area(self):
-        return self.__tea*self.__coffee*self.__area
+    def area(self):                      # public
+        return self.__tea*self.__coffee*self.__area      #private
 
 
 Rect = Example(7,11,25,29,35)
