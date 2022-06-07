@@ -50,13 +50,6 @@ ChildClass.total_objects()
 
 
 
-
-
-
-
-
-
-
 # class Calc:
 
 #     def __init__(self):
