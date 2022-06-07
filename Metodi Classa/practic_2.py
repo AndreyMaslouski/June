@@ -51,4 +51,12 @@ rect = Rectangle(10,20)
 # rect._width
 rect.get_width()
 
+# Но на самом деле это сделать можно, просто этот атрибут
+# теперь для внешнего использования носит название:
+# _Rectangle__width:
 
+rect._Rectangle__width
+# Результат:10
+rect._Rectangle__width = 20
+rect.get_width()
+# Результат: 20
