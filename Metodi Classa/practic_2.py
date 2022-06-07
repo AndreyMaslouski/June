@@ -44,5 +44,11 @@ class Rectangle:
     def area(self):
         return self.__width*self.__height
 
+# Попытка обратиться к __width напрямую вызовет ошибку, нужно
+# работать только через get_width():
+
+rect = Rectangle(10,20)
+# rect._width
+rect.get_width()
 
 
