@@ -25,3 +25,7 @@ class Human:
         print(f'Money: {self.__money}')
         print(f'House: {self.__house}')
 
+    @staticmethod
+    def default_info():
+        print(f'Default name: {Human.default_name}')
+        print (f'Default age: {Human.default_age}')
