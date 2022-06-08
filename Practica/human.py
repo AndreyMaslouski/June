@@ -29,3 +29,7 @@ class Human:
     def default_info():
         print(f'Default name: {Human.default_name}')
         print (f'Default age: {Human.default_age}')
+
+    def earn_money(self,amount):
+        self.__money += amount
+        print(f"Вы заработали {amount}. У Вас {self.__money} денег")
