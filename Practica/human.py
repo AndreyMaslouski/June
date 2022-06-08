@@ -19,3 +19,9 @@ class Human:
         self.age = age
         self.__money = 0
         self.__house = None
+    def info(self):
+        print(f'Name: {self.name}')
+        print(f'Age: {self.age}')
+        print(f'Money: {self.__money}')
+        print(f'House: {self.__house}')
+
