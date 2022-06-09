@@ -48,3 +48,20 @@ class Rectangle(Figure):
             self.__height = h
         else:
             raise ValueError
+
+    def info(self):
+        print("Rectangle")
+        print("Color: " + self.color)
+        print("Width: " + str(self.width))
+        print("Height: " + str(self.height))
+        print("Area: " + str(self.area()))
+
+    def area(self):
+        return self.__width * self.__height
+
+# Посмотрим как это работает
+    fig=Figure("orange")
+    fig.info()
+
+rect = Rectangle(10,20,"green")
+rect.info()
