@@ -36,3 +36,5 @@ class Human:
 
 if __name__=='__main__':
     Human.default_info()
+    Alex = Human('Alex',25)
+    Alex.info()
