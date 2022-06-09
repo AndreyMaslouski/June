@@ -52,7 +52,6 @@ class Present(Future):
         print("Rain: " + str(self.rain))
         print("Weather: " + str(self.weather()))
 
-
-
-
+    def weather(self):
+        return self.__sunny + self.__rain
 
