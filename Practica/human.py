@@ -33,3 +33,6 @@ class Human:
     def earn_money(self,amount):
         self.__money += amount
         print(f"Вы заработали {amount}. У Вас {self.__money} денег")
+
+if __name__=='__main__':
+    Human.default_info()
