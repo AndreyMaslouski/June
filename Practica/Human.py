@@ -37,14 +37,14 @@ class Human:
         print(f"Вы заработали {amount}. У Вас {self.__money} денег")
 
 
-# 1
+# 1.1
 class House:
-    # 2,3
+    # 1.2,1.3
     def __init__(self, area, price):
         self._area = area
         self._price = price
 
-    # 4
+    # 1.4
     def final_price(self, discount):
         final_price = self._price * (100 - discount) / 100
         return final_price
@@ -53,9 +53,15 @@ class House:
 # 2.1
 class SmallHouse(House):
     default_area = 40
-
+# 2.2
     def __init__(self, price):
         super.__init__(SmallHouse.default_area, price)
+#3.1
+
+    def __make_deal(self,house,price):
+        self.__money -= price
+        self.__house = house
+
 
 
 if __name__ == '__main__':
