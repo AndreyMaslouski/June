@@ -38,3 +38,6 @@ if __name__=='__main__':
     Human.default_info()
     Alex = Human('Alex',25)
     Alex.info()
+    Alex.earn_money(10000)
+    Alex.earn_money(5000)
+    Alex.info()
