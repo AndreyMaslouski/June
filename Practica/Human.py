@@ -57,7 +57,6 @@ class SmallHouse(House):
     def __init__(self, price):
         super.__init__(SmallHouse.default_area, price)
 #3.1
-
     def __make_deal(self,house,price):
         self.__money -= price
         self.__house = house
