@@ -45,6 +45,14 @@ class Present(Future):
         else:
             raise ValueError
 
+    def info(self):
+        print("Present")
+        print("Street: " + self.street)
+        print("Sunny: " + str(self.sunny))
+        print("Rain: " + str(self.rain))
+        print("Weather: " + str(self.weather()))
+
+
 
 
 
