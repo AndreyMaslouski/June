@@ -1,7 +1,6 @@
 # Родительский класс
 class Phone:
-
-    # Инициализатор
+# Инициализатор
     def __init__(self):
         self.is_on = False
 
@@ -14,6 +13,7 @@ class Phone:
         if self.is_on:
             print('Making call...')
 
+print(dir(Phone))
 # Унаследованный класс
 class MobilePhone(Phone):
 
@@ -27,5 +27,5 @@ class MobilePhone(Phone):
         self.battery = num
         print(f'Charging battery up to ... {self.battery}%')
 
-my_mobile_phone = MobilePhone()
-print(dir(my_mobile_phone))
+# my_mobile_phone = MobilePhone()
+# print(dir(my_mobile_phone))
