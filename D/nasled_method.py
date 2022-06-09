@@ -55,6 +55,16 @@ class House:
         final_price = self._price * (100 - discount) / 100
         return final_price
 
+# 2.1
+class SmallHouse(House):
+    default_area = 40
+
+    # 2.2
+    def __init__(self, price):
+        super.__init__(SmallHouse.default_area, price)
+
+
+
 
 if __name__ == '__main__':
     Human.default_info()
