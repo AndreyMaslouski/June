@@ -16,6 +16,12 @@
 # 2. Реализуйте метод buy_house(), который будет проверять, что у человека достаточно денег для покупки, и
 # совершать сделку. Если денег слишком мало - нужно вывести предупреждение в консоль. Параметры метода: ссылка
 # на дом и размер скидки.
+# Тесты
+# 1. Создайте объект класса SmallHouse
+# 2. Попробуйте купить созданный дом, убедитесь в получении
+# предупреждения.
+# 3. Снова попробуйте купить дом, после поправки
+# финансового положения
 
 class Human:
     default_name = "No name"
@@ -42,6 +48,20 @@ class Human:
         self.__money += amount
         print(f"Вы заработали {amount}. У Вас {self.__money} денег")
 
+        # 3.1
+
+    def __make_deal(self, house, price):
+        self.__money -= price
+        self.__house = house
+
+    # 3.2
+    def buy_house(self, house, discount):
+        price = house.final_price(discount)
+        if price > self.__money:
+            print("У Вас недостаточно денег")
+        else:
+            self.__make_deal(house, price)
+
 
 # 1.1
 class House:
@@ -62,26 +82,17 @@ class SmallHouse(House):
 
     # 2.2
     def __init__(self, price):
-        super.__init__(SmallHouse.default_area, price)
-
-    # 3.1
-    def __make_deal(self, house, price):
-        self.__money -= price
-        self.__house = house
-
-    # 3.2
-    def buy_house(self, house, discount):
-        price = house.final_price(discount)
-        if price > self.__money:
-            print("У Вас недостаточно денег")
-        else:
-            self.__make_deal(house, price)
+        super().__init__(SmallHouse.default_area, price)
 
 
+# Тесты
 if __name__ == '__main__':
     Human.default_info()
     Alex = Human('Alex', 25)
     Alex.info()
+    drozd = SmallHouse(10000)
+    Alex.buy_house(drozd, 10)
     Alex.earn_money(10000)
     Alex.earn_money(5000)
+    Alex.buy_house(drozd,10)
     Alex.info()
