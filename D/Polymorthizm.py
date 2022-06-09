@@ -55,3 +55,9 @@ class Present(Future):
     def weather(self):
         return self.__sunny + self.__rain
 
+# Посмотрим как это работает
+    fut = Future("cloudy")
+    fut.info()
+
+pres = Present("Yes","Yes","wet")
+pres.info()
