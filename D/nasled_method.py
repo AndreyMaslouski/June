@@ -69,6 +69,14 @@ class SmallHouse(House):
         self.__money -= price
         self.__house = house
 
+    # 3.2
+    def buy_house(self, house, discount):
+        price = house.final_price(discount)
+        if price > self.__money:
+            print("У Вас недостаточно денег")
+        else:
+            self.__make_deal(house, price)
+
 
 if __name__ == '__main__':
     Human.default_info()
