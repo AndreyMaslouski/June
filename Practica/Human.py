@@ -35,9 +35,15 @@ class Human:
         print(f"Вы заработали {amount}. У Вас {self.__money} денег")
 
 class House:
+# 1
     def __init__(self,area,price):
         self._area = area
         self._price = price
+# 2
+    def final_price(self,discount):
+        final_price = self._price*(100-discount)/100
+        return final_price
+
 
 if __name__=='__main__':
     Human.default_info()
