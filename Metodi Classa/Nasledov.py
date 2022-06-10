@@ -13,7 +13,7 @@ class Phone:
         if self.is_on:
             print('Making call...')
 
-print(dir(Phone))
+# print(dir(Phone))
 # Унаследованный класс
 class MobilePhone(Phone):
 
@@ -27,5 +27,28 @@ class MobilePhone(Phone):
         self.battery = num
         print(f'Charging battery up to ... {self.battery}%')
 
-# my_mobile_phone = MobilePhone()
+my_mobile_phone = MobilePhone()
 # print(dir(my_mobile_phone))
+
+# создаем класс Vehicle
+class Vehicle:
+    def vehicle_method(self):
+        print("Это родительский метод из класса Vehicle")
+
+
+# создаем класс Car, который наследует Vehicle
+class Car(Vehicle):
+    def car_method(self):
+        print("Это дочерний метод из класса Car")
+
+
+# создаем класс Cycle, который наследует Vehicle
+class Cycle(Vehicle):
+    def cycleMethod(self):
+        print("Это дочерний метод из класса Cycle")
+
+
+car_a = Car()
+car_a.vehicle_method()  # вызов метода родительского класса
+car_b = Cycle()
+car_b.vehicle_method()  # вызов метода родительского класса
