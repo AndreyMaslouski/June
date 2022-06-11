@@ -41,14 +41,18 @@
 
 # 6. Выведите пример текста на английском языке
 
-# 1
+# 1,2
 import string
-
-result = string.ascii_uppercase
-print(result)
-
 
 class Alphabet:
     def __init__(self, lang, letters):
-        self._lang = lang
-        self._letters = letters
+        self.lang = lang
+        self.letters = letters
+
+    def print(self):
+        print(self.letters)
+
+    def letters_num(self):
+        return len(self.letters)
+
+
