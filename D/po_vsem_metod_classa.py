@@ -60,3 +60,9 @@ class EngAlphabet(Alphabet):
     def __init__(self):
         super().__init__('lang', string.ascii_uppercase)
         self.__letters_num = __letters_num= 26
+# 2.4
+    def is_en_letter(self,letter):
+        if letter in string.ascii_uppercase:
+            print(f'Буква {letter} относится к англ.алфавиту')
+        else:
+            print(f'Буква {letter} не относится к англ.алфавиту')
