@@ -48,28 +48,44 @@ class Alphabet:
     def __init__(self, lang, letters):
         self.lang = lang
         self.letters = letters
-# 1.3
+
+    # 1.3
     def print(self):
         print(self.letters)
-#1.4
+
+    # 1.4
     def letters_num(self):
         return len(self.letters)
 
-#2.1, 2.2, 2.3
+
+# 2.1, 2.2, 2.3
 class EngAlphabet(Alphabet):
     def __init__(self):
         super().__init__('lang', string.ascii_uppercase)
-        self.__letters_num = __letters_num= 26
-# 2.4
-    def is_en_letter(self,letter):
+        self.__letters_num = __letters_num = 26
+
+    # 2.4
+    def is_en_letter(self, letter):
         if letter in string.ascii_uppercase:
             print(f'Буква {letter} относится к англ.алфавиту')
         else:
             print(f'Буква {letter} не относится к англ.алфавиту')
-# 2.5
+
+    # 2.5
     def letters_num(self):
         print(self.__letters_num)
-# 2.6
+
+    # 2.6
     @staticmethod
     def example():
-        return('Good and Sunny Day!')
+        return ('Good and Sunny Day!')
+
+
+# Тесты
+if __name__ == '__main__':
+    ex = EngAlphabet()
+    ex.print()
+    ex.letters_num()
+    print(ex.is_en_letter('F'))
+    print(ex.is_en_letter('Щ'))
+    print(ex.example())
