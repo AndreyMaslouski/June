@@ -69,3 +69,7 @@ class EngAlphabet(Alphabet):
 # 2.5
     def letters_num(self):
         print(self.__letters_num)
+# 2.6
+    @staticmethod
+    def example():
+        return('Good and Sunny Day!')
