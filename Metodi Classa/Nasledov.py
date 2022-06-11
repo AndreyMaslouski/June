@@ -49,9 +49,9 @@ class Cycle(Vehicle):
 
 
 car_a = Car()
-car_a.vehicle_method()  # вызов метода родительского класса
+# car_a.vehicle_method()  # вызов метода родительского класса
 car_b = Cycle()
-car_b.vehicle_method()  # вызов метода родительского класса
+# car_b.vehicle_method()  # вызов метода родительского класса
 
 class Camera:
     def camera_method(self):
