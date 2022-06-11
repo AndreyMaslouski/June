@@ -66,3 +66,6 @@ class EngAlphabet(Alphabet):
             print(f'Буква {letter} относится к англ.алфавиту')
         else:
             print(f'Буква {letter} не относится к англ.алфавиту')
+# 2.5
+    def letters_num(self):
+        print(self.__letters_num)
