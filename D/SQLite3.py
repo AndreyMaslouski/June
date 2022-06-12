@@ -24,7 +24,7 @@
 #
 # INT
 #
-# 2.Занесите новую строку в таблицуbook
+# 2.Занесите новую строку в таблицу book
 #
 # 3.Выбрать информацию о всех книгах из таблицы book.
 
@@ -36,10 +36,14 @@ from nasled_method import Human
 base = sqlite3.connect('book.db')
 cur = base.cursor()
 
-base.execute('CREATE TABLE IF NOT EXISTS data(login PRIMARY KEY,password)'.format('data'))
+
+
+base.execute('CREATE TABLE IF NOT EXISTS data(login PRIMARY KEY,password text)'.format('data'))
 base.commit()
 
+# cur.execute('INSERT INTO data VALUES(?,?)',('jonny 123','123456789'))
+# base.commit()
+# cur.execute('INSERT INTO data VALUES(?,?)',('billy123','password'))
+# base.commit()
 cur.execute('INSERT INTO data VALUES(?,?)',('jonny 123','123456789'))
-base.commit()
-cur.execute('INSERT INTO data VALUES(?,?)',('billy123','password'))
 base.commit()
