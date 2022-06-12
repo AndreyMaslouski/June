@@ -30,12 +30,13 @@
 
 
 import sqlite3
+from nasled_method import Human
 
 #1 Создаём Таблицу book:
 base = sqlite3.connect('book.db')
 cur = base.cursor()
 
-base.execute('CREATE TABLE IF NOT EXISTS data(login,password)'.format('data'))
+base.execute('CREATE TABLE IF NOT EXISTS data(login PRIMARY KEY,password)'.format('data'))
 base.commit()
 
 cur.execute('INSERT INTO data VALUES(?,?)',('jonny 123','123456789'))
