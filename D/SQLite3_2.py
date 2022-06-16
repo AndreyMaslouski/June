@@ -17,15 +17,51 @@ import sqlite3
 
 #1 Создаём Таблицы:
 base = sqlite3.connect('text.db')
-cur = base.cursor()
+cursor = base.cursor()
 
-base.execute('CREATE TABLE IF NOT EXISTS text(text_dannie VARCHAR(50))'.format('text'))
-base.commit()
+# создаем таблицы
+cursor.execute('''CREATE TABLE IF NOT EXISTS tab_1 (id INTEGER PRIMARY KEY AUTOINCREMENT, col_1 VARCHAR(50))''')
+base.commit() # сохраняем изменения
 
-base = sqlite3.connect('chisla.db')
-cur = base.cursor()
-
-base.execute('CREATE TABLE IF NOT EXISTS chisla(dannie_chisel INT)'.format('chisla'))
-base.commit()
+cursor.execute('''CREATE TABLE IF NOT EXISTS tab_2 (id INTEGER PRIMARY KEY AUTOINCREMENT, col_1 INTEGER)''')
+base.commit() # сохраняем изменения
 
 #2
+a = [15,27,'world',8,16,'sunny',26,14,'sky',35,44]
+
+for i in a:
+    if type(i) == str:
+        cursor.execute('''INSERT INTO tab_1(col_1) VALUES (?)''', (i,))
+        d = len(i)
+        cursor.execute('''INSERT INTO tab_2(col_1) VALUES (?)''', (d,))
+        base.commit()
+
+        k = cursor.fetchall()
+
+        if len(k) > 5:
+            cursor.execute('''DELETE FROM tab_1 WHERE id = 1''')
+            base.commit()
+        else:
+            cursor.execute('''UPDATE tab_1 SET col_1 = 'hello' WHERE id = ?''', (1,))
+            base.commit()
+    elif type(i) == int:
+        if i % 2 == 0:
+            cursor.execute('''INSERT INTO tab_2(col_1) VALUES (?)''', (i,))
+            base.commit()
+        else:
+            cursor.execute('''INSERT INTO tab_1(col_1) VALUES ('nechetnoe')''')
+            base.commit()
+
+# cursor.execute('''DROP TABLE tab_1''')
+# cursor.execute('''DROP TABLE tab_2''')
+
+cursor.execute('''SELECT*FROM tab_2''')
+k2 = cursor.fetchall()
+print(k2)
+
+cursor.execute('''SELECT * FROM tab_1''')
+k = cursor.fetchall()
+print(k)
+
+
+
