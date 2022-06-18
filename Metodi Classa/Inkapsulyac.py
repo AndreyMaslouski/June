@@ -23,3 +23,6 @@ class Car:
 
     def getCarModel(self):
         return "Год выпуска модели " + str(self.model)
+
+carA = Car(2088)
+print(carA.getCarModel())
