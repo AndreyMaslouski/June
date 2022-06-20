@@ -6,3 +6,9 @@ conn = sqlite3.connect('name1.db')
 cursor = conn.cursor()
 # Создадим таблицу с двумя текстовыми колонками
 cursor.execute('''CREATE TABLE IF NOT EXISTS tab_1(id INTEGER PRIMARY KEY AUTOINCREMENT, col_1 TEXT,col_2 TEXT) ''')
+
+# Заполняем таблицу данными
+cursor.execute('''INSERT INTO tab_1(col_1,col_2) VALUES ('hello','world')''')
+# Сохраняем изменения
+conn.commit()
+
