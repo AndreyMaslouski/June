@@ -22,3 +22,11 @@ cursor.execute('''SELECT*FROM tab_2''')
 k = cursor.fetchall()
 print(k)
 
+# Удаление записи из таблицы по id, по значению
+cursor.execute('''DELETE FROM tab_1 WHERE id = 10''')
+conn.commit()
+cursor.execute('''DELETE FROM tab_1 WHERE col_1 ='hello' ''')
+conn.commit()
+cursor.execute('''SELECT*FROM tab_1''')
+k=cursor.fetchall()
+print(k)
