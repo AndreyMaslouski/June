@@ -22,11 +22,21 @@ cursor.execute('''SELECT*FROM tab_1''')
 k = cursor.fetchall()
 print(k)
 
-# Удаление записи из таблицы по id, по значению
-cursor.execute('''DELETE FROM tab_1 WHERE id = 1''')
-conn.commit()
-cursor.execute('''DELETE FROM tab_1 WHERE col_1 ='red' ''')
+# # Удаление записи из таблицы по id, по значению
+# cursor.execute('''DELETE FROM tab_1 WHERE id = 10''')
+# conn.commit()
+# cursor.execute('''DELETE FROM tab_1 WHERE col_1 ='hello' ''')
+# conn.commit()
+# cursor.execute('''SELECT*FROM tab_1''')
+# k=cursor.fetchall()
+# print(k)
+
+# Обновление данных в таблице
+t = 3
+cursor.execute('''UPDATE tab_1 SET col_1='world' WHERE id=?''', (t,))
 conn.commit()
 cursor.execute('''SELECT*FROM tab_1''')
 k=cursor.fetchall()
 print(k)
+
+
