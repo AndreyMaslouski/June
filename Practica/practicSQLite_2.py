@@ -21,10 +21,12 @@ conn.commit()
 cursor.execute('''SELECT col_1,col_2 FROM tab_1''')
 k = cursor.fetchall()
 print(k)
+print(len(k))
 sum = 0
 for i in k:
     for j in i:
         sum +=j
+aver = sum/(len(k)*2)
 print(sum)
-
+print(aver)
 
