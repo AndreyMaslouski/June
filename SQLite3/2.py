@@ -5,7 +5,7 @@ cursor = conn.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS tab_1(id INTEGER PRIMARY KEY AUTOINCREMENT, col_1 TEXT,col_2 TEXT, col_3 INTEGER) ''')
 
 # Заполняем таблицу данными
-cursor.execute('''INSERT INTO tab_1(col_1,col_2,col_3) VALUES ('hello','world',15)''')
+cursor.execute('''INSERT INTO tab_1(col_1,col_2,col_3) VALUES ('hello','world',7)''')
 # Сохраняем изменения
 conn.commit()
 
