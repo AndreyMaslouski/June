@@ -29,4 +29,12 @@ for i in k:
 aver = sum/(len(k)*2)
 print(sum)
 print(aver)
+if aver > len(k):
+    cursor.execute('''DELETE FROM tab_1 WHERE id = 4''')
+    conn.commit()
+cursor.execute('''SELECT col_1,col_2 FROM tab_1''')
+k = cursor.fetchall()
+print(k)
+
+
 
