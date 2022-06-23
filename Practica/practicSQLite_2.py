@@ -14,3 +14,11 @@ cursor = conn.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS tab_1(id INTEGER PRIMARY KEY AUTOINCREMENT, col_1 INTEGER,
 col_2 INTEGER) ''')
 
+a = random.randint(0,9)
+b = random.randint(0,9)
+cursor.execute('''INSERT INTO tab_1(col_1,col_2) VALUES(?,?)''',(a,b))
+conn.commit()
+cursor.execute('''SELECT col_1,col_2 FROM tab_1''')
+
+
+
