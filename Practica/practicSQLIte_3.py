@@ -31,10 +31,10 @@ class A:
                 conn.commit()
         elif a is not None and b is not None and type(c) is int:
             cursor.execute('''UPDATE tab_1 SET col_1 = 77 WHERE id = 3''')
-            conn.commit()
+
 
 example = A()
-example.baz(3,5)
+example.baz(3,'hello',5)
 cursor.execute('''SELECT * FROM tab_1''')
 k = cursor.fetchall()
 print(k)
