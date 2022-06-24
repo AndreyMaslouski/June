@@ -17,4 +17,14 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS tab_1(id INTEGER PRIMARY KEY AUTOIN
 cursor.execute('''SELECT*FROM tab_1''')
 k = cursor.fetchall()
 print(k)
+class A:
+    def baz(self,a=None,b=None,c=None):
+        if a is not None and b is None and c is None:
+            cursor.execute('''INSERT INTO tab_1 (col_1) VALUES (3)''')
+
+example = A()
+example.baz(3)
+cursor.execute('''SELECT * FROM tab_1''')
+k = cursor.fetchall()
+print(k)
 
