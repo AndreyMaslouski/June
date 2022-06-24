@@ -23,10 +23,11 @@ class A:
             cursor.execute('''INSERT INTO tab_1 (col_1) VALUES (3)''')
             conn.commit()
         elif a is not None and b is not None and c is None:
-            cursor.execute('''DELETE FROM tab_1 WHERE id = 1''')
-
+            if type(b) is int:
+                cursor.execute('''DELETE FROM tab_1 WHERE id = 1''')
+                conn.commit()
 example = A()
-example.baz(3,4)
+example.baz(3,5)
 cursor.execute('''SELECT * FROM tab_1''')
 k = cursor.fetchall()
 print(k)
