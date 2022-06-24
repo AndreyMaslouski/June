@@ -21,9 +21,12 @@ class A:
     def baz(self,a=None,b=None,c=None):
         if a is not None and b is None and c is None:
             cursor.execute('''INSERT INTO tab_1 (col_1) VALUES (3)''')
+            conn.commit()
+        elif a is not None and b is not None and c is None:
+            cursor.execute('''DELETE FROM tab_1 WHERE id = 1''')
 
 example = A()
-example.baz(3)
+example.baz(3,4)
 cursor.execute('''SELECT * FROM tab_1''')
 k = cursor.fetchall()
 print(k)
