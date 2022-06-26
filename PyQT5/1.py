@@ -1,4 +1,5 @@
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QApplication
+import sys
 
 class Calculator (QWidget):
     def __init__(self):
@@ -9,4 +10,10 @@ class Calculator (QWidget):
 
     def initUI(self):
         self.setGeometry(300,300,225,370)
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = Calculator()
+    ex.show()
+    sys.exit(app.exec())
 
