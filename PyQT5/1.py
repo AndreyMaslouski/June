@@ -19,9 +19,18 @@ class Calculator (QWidget):
         self.move(0,0)
 
         self.num_1 = QPushButton('1',self)
-        self.num_1.resize(20,50)
+        self.num_1.resize(50,50)
         self.num_1.move(5,100)
         # self.num_1.clicked.connect()
+
+        self.num_2 = QPushButton('1', self)
+        self.num_2.resize(50, 50)
+        self.num_2.move(60, 100)
+
+        self.num_3 = QPushButton('1', self)
+        self.num_3.resize(50, 50)
+        self.num_3.move(5, 100)
+
 
 
 
