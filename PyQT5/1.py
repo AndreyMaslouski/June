@@ -52,34 +52,39 @@ class Calculator (QWidget):
         self.mul.resize(50, 50)
         self.mul.move(170, 155)
 
-        # self.num_7 = QPushButton('7', self)
-        # self.num_7.resize(50, 50)
-        # self.num_7.move(5, 100)
-        # # self.num_1.clicked.connect()
-        #
-        # self.num_8 = QPushButton('8', self)
-        # self.num_8.resize(50, 50)
-        # self.num_8.move(60, 100)
-        #
-        # self.num_9 = QPushButton('9', self)
-        # self.num_9.resize(50, 50)
-        # self.num_9.move(115, 100)
-        #
-        # self.div = QPushButton('/',self)
-        # self.div.resize(50,50)
-        # self.div.move(170,100)
-        #
-        # self.div = QPushButton('*', self)
-        # self.div.resize(50, 50)
-        # self.div.move(170, 100)
-        #
-        # self.div = QPushButton('+', self)
-        # self.div.resize(50, 50)
-        # self.div.move(170, 100)
-        #
-        # self.div = QPushButton('-', self)
-        # self.div.resize(50, 50)
-        # self.div.move(170, 100)
+        self.num_7 = QPushButton('7', self)
+        self.num_7.resize(50, 50)
+        self.num_7.move(5, 210)
+        # self.num_1.clicked.connect()
+
+        self.num_8 = QPushButton('8', self)
+        self.num_8.resize(50, 50)
+        self.num_8.move(60, 210)
+
+        self.num_9 = QPushButton('9', self)
+        self.num_9.resize(50, 50)
+        self.num_9.move(115, 210)
+
+
+        self.plus = QPushButton('+', self)
+        self.plus.resize(50, 50)
+        self.plus.move(170, 210)
+
+        self.num_0 = QPushButton('0', self)
+        self.num_0.resize(50, 50)
+        self.num_0.move(5, 265)
+
+        self.minus = QPushButton('-', self)
+        self.minus.resize(50, 50)
+        self.minus.move(60, 265)
+
+        self.step = QPushButton('^', self)
+        self.step.resize(50, 50)
+        self.step.move(115, 265)
+
+        self.sqrt = QPushButton('√', self)
+        self.sqrt.resize(50, 50)
+        self.sqrt.move(170, 265)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
