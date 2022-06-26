@@ -10,6 +10,7 @@ class Calculator (QWidget):
 
     def initUI(self):
         self.setGeometry(300,300,225,370)
+        self.setWindowTitle("Калькулятор")
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
