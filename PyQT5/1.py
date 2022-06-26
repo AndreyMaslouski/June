@@ -23,13 +23,17 @@ class Calculator (QWidget):
         self.num_1.move(5,100)
         # self.num_1.clicked.connect()
 
-        self.num_2 = QPushButton('1', self)
+        self.num_2 = QPushButton('2', self)
         self.num_2.resize(50, 50)
         self.num_2.move(60, 100)
 
-        self.num_3 = QPushButton('1', self)
+        self.num_3 = QPushButton('3', self)
         self.num_3.resize(50, 50)
-        self.num_3.move(5, 100)
+        self.num_3.move(115, 100)
+
+        self.div = QPushButton('/',self)
+        self.div.resize(50,50)
+        self.div.move(170,100)
 
 
 
