@@ -97,6 +97,9 @@ class Calculator (QWidget):
         self.c.resize(50, 50)
         self.c.move(170, 320)
 
+        self.num_1.clicked.connect(self.one)
+        self.num_2.clicked.connect(self.two)
+
     def interValue(self):
         if self.label.text()=='0':
             self.label.setText('')
@@ -104,6 +107,10 @@ class Calculator (QWidget):
 
     def one(self):
         self.my_input='1'
+        self.entervalue()
+
+    def two(self):
+        self.my_input='2'
         self.entervalue()
 
 if __name__ == '__main__':
