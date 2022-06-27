@@ -6,6 +6,9 @@ class Calculator (QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
+        self.my_input==[]
+        self.operand_1=[]
+        self.operand_2=[]
 
 
 
@@ -93,6 +96,11 @@ class Calculator (QWidget):
         self.c = QPushButton('C', self)
         self.c.resize(50, 50)
         self.c.move(170, 320)
+
+    def interValue(self):
+        if self.label.text()=='0':
+            self.label.setText('')
+        self.label.setText(self.label.setText()+self.my_input)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
