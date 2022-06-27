@@ -153,6 +153,16 @@ class Calculator (QWidget):
         self.my_input='0'
         self.enterValue()
 
+    def plus_1(self):
+        self.operation='+'
+        self.operand_1=float(self.label.text())
+        self.label.text('')
+
+    def minus_1(self):
+        self.operation='-'
+        self.operand_1=float(self.label.text())
+        self.label.text('')
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Calculator()
