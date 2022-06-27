@@ -102,6 +102,10 @@ class Calculator (QWidget):
             self.label.setText('')
         self.label.setText(self.label.setText()+self.my_input)
 
+    def one(self):
+        self.my_input='1'
+        self.entervalue()
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Calculator()
