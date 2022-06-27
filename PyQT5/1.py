@@ -86,6 +86,14 @@ class Calculator (QWidget):
         self.sqrt.resize(50, 50)
         self.sqrt.move(170, 265)
 
+        self.ravn = QPushButton('=', self)
+        self.ravn.resize(150, 50)
+        self.ravn.move(5, 320)
+
+        self.c = QPushButton('C', self)
+        self.c.resize(50, 50)
+        self.c.move(170, 320)
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Calculator()
