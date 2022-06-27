@@ -6,9 +6,9 @@ class Calculator (QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
-        self.my_input==[]
-        self.operand_1=[]
-        self.operand_2=[]
+        self.my_input = []
+        self.operand_1 = []
+        self.operand_2 = []
 
 
 
@@ -100,18 +100,18 @@ class Calculator (QWidget):
         self.num_1.clicked.connect(self.one)
         self.num_2.clicked.connect(self.two)
 
-    def interValue(self):
+    def enterValue(self):
         if self.label.text()=='0':
             self.label.setText('')
-        self.label.setText(self.label.setText()+self.my_input)
+        self.label.setText(self.label.text()+self.my_input)
 
     def one(self):
         self.my_input='1'
-        self.entervalue()
+        self.enterValue()
 
     def two(self):
         self.my_input='2'
-        self.entervalue()
+        self.enterValue()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
