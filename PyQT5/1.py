@@ -107,6 +107,10 @@ class Calculator (QWidget):
         self.num_0.clicked.connect(self.zero)
         self.plus.clicked.connect(self.plus_1)
         self.minus.clicked.connect(self.minus_1)
+        self.div.clicked.connect(self.div_1)
+        self.mul.clicked.connect(self.mul_1)
+        self.step.clicked.connect(self.step_1)
+        self.sqrt.clicked.connect(self.sqrt_1)
 
     def enterValue(self):
         if self.label.text()=='0':
@@ -161,6 +165,26 @@ class Calculator (QWidget):
     def minus_1(self):
         self.operation='-'
         self.operand_1=float(self.label.text())
+        self.label.setText('')
+
+    def div_1(self):
+        self.operation='/'
+        self.operand_1=float(self.label.text())
+        self.label.setText('')
+
+    def mul_1(self):
+        self.operation='*'
+        self.operand_1=float(self.label.text())
+        self.label.setText('')
+
+    def step_1(self):
+        self.operation = '^'
+        self.operand_1 = float(self.label.text())
+        self.label.setText('')
+
+    def sqrt_1(self):
+        self.operation = '√'
+        self.operand_1 = float(self.label.text())
         self.label.setText('')
 
 if __name__ == '__main__':
