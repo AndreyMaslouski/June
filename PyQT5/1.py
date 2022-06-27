@@ -99,6 +99,14 @@ class Calculator (QWidget):
 
         self.num_1.clicked.connect(self.one)
         self.num_2.clicked.connect(self.two)
+        self.num_3.clicked.connect(self.three)
+        self.num_4.clicked.connect(self.four)
+        self.num_5.clicked.connect(self.five)
+        self.num_6.clicked.connect(self.six)
+        self.num_7.clicked.connect(self.seven)
+        self.num_8.clicked.connect(self.eight)
+        self.num_9.clicked.connect(self.nine)
+        self.num_0.clicked.connect(self.zero)
 
     def enterValue(self):
         if self.label.text()=='0':
@@ -111,6 +119,38 @@ class Calculator (QWidget):
 
     def two(self):
         self.my_input='2'
+        self.enterValue()
+
+    def three(self):
+        self.my_input='3'
+        self.enterValue()
+
+    def four(self):
+        self.my_input='4'
+        self.enterValue()
+
+    def five(self):
+        self.my_input='5'
+        self.enterValue()
+
+    def six(self):
+        self.my_input='6'
+        self.enterValue()
+
+    def seven(self):
+        self.my_input='7'
+        self.enterValue()
+
+    def eight(self):
+        self.my_input='8'
+        self.enterValue()
+
+    def nine(self):
+        self.my_input='9'
+        self.enterValue()
+
+    def zero(self):
+        self.my_input='0'
         self.enterValue()
 
 if __name__ == '__main__':
