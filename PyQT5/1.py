@@ -111,6 +111,7 @@ class Calculator (QWidget):
         self.mul.clicked.connect(self.mul_1)
         self.step.clicked.connect(self.step_1)
         self.sqrt.clicked.connect(self.sqrt_1)
+        self.ravn.clicked.connect(self.ravno)
 
     def enterValue(self):
         if self.label.text()=='0':
@@ -186,6 +187,13 @@ class Calculator (QWidget):
         self.operation = '√'
         self.operand_1 = float(self.label.text())
         self.label.setText('')
+
+    def ravno(self):
+        self.operand_2=float(self.label.text())
+        if self.operation=='+':
+            self.result=self.operand_1 + self.operand_2
+        self.label.setText(str(self.result))
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
