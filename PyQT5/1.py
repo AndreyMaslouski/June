@@ -192,6 +192,20 @@ class Calculator (QWidget):
         self.operand_2=float(self.label.text())
         if self.operation=='+':
             self.result=self.operand_1 + self.operand_2
+        elif self.operation=='-':
+            self.result=self.operand_1 - self.operand_2
+        elif self.operation=='*':
+            self.result=self.operand_1 * self.operand_2
+        elif self.operation=='/':
+            if self.operand_2 ==0:
+                self.rezult='error'
+            else:
+                self.rezult = self.operand_1 / self.operand_2
+        elif self.operation=='^':
+            self.result=self.operand_1 ^ self.operand_2
+        elif self.operation == '√':
+            self.rezult=self.operand_1**(1/self.operand_2)
+
         self.label.setText(str(self.result))
 
 
