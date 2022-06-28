@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QPushButton
 import sys
 
 
-class Calculator (QWidget):
+class Calculator(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -10,20 +10,18 @@ class Calculator (QWidget):
         self.operand_1 = []
         self.operand_2 = []
 
-
-
     def initUI(self):
-        self.setGeometry(300,300,225,370)
+        self.setGeometry(300, 300, 225, 370)
         self.setWindowTitle("Калькулятор")
 
         self.label = QLabel(self)
         self.label.setText('0')
-        self.label.resize(225,95)
-        self.move(0,0)
+        self.label.resize(225, 95)
+        self.move(0, 0)
 
-        self.num_1 = QPushButton('1',self)
-        self.num_1.resize(50,50)
-        self.num_1.move(5,100)
+        self.num_1 = QPushButton('1', self)
+        self.num_1.resize(50, 50)
+        self.num_1.move(5, 100)
 
         self.num_2 = QPushButton('2', self)
         self.num_2.resize(50, 50)
@@ -34,8 +32,8 @@ class Calculator (QWidget):
         self.num_3.move(115, 100)
 
         self.div = QPushButton('/', self)
-        self.div.resize(50,50)
-        self.div.move(170,100)
+        self.div.resize(50, 50)
+        self.div.move(170, 100)
 
         self.num_4 = QPushButton('4', self)
         self.num_4.resize(50, 50)
@@ -57,7 +55,6 @@ class Calculator (QWidget):
         self.num_7.resize(50, 50)
         self.num_7.move(5, 210)
 
-
         self.num_8 = QPushButton('8', self)
         self.num_8.resize(50, 50)
         self.num_8.move(60, 210)
@@ -65,7 +62,6 @@ class Calculator (QWidget):
         self.num_9 = QPushButton('9', self)
         self.num_9.resize(50, 50)
         self.num_9.move(115, 210)
-
 
         self.plus = QPushButton('+', self)
         self.plus.resize(50, 50)
@@ -112,70 +108,71 @@ class Calculator (QWidget):
         self.step.clicked.connect(self.step_1)
         self.sqrt.clicked.connect(self.sqrt_1)
         self.ravn.clicked.connect(self.ravno)
+        self.c.clicked.connect(self.clean)
 
     def enterValue(self):
-        if self.label.text()=='0':
+        if self.label.text() == '0':
             self.label.setText('')
-        self.label.setText(self.label.text()+self.my_input)
+        self.label.setText(self.label.text() + self.my_input)
 
     def one(self):
-        self.my_input='1'
+        self.my_input = '1'
         self.enterValue()
 
     def two(self):
-        self.my_input='2'
+        self.my_input = '2'
         self.enterValue()
 
     def three(self):
-        self.my_input='3'
+        self.my_input = '3'
         self.enterValue()
 
     def four(self):
-        self.my_input='4'
+        self.my_input = '4'
         self.enterValue()
 
     def five(self):
-        self.my_input='5'
+        self.my_input = '5'
         self.enterValue()
 
     def six(self):
-        self.my_input='6'
+        self.my_input = '6'
         self.enterValue()
 
     def seven(self):
-        self.my_input='7'
+        self.my_input = '7'
         self.enterValue()
 
     def eight(self):
-        self.my_input='8'
+        self.my_input = '8'
         self.enterValue()
 
     def nine(self):
-        self.my_input='9'
+        self.my_input = '9'
         self.enterValue()
 
     def zero(self):
-        self.my_input='0'
+        self.my_input = '0'
         self.enterValue()
 
     def plus_1(self):
-        self.operation='+'
-        self.operand_1=float(self.label.text())
+        self.operation = '+'
+        self.operand_1 = float(self.label.text())
         self.label.setText('')
 
     def minus_1(self):
-        self.operation='-'
-        self.operand_1=float(self.label.text())
+        self.operation = '-'
+        self.operand_1 = float(self.label.text())
         self.label.setText('')
 
     def div_1(self):
-        self.operation='/'
-        self.operand_1=float(self.label.text())
+        self.operation = '/'
+        self.operand_1 = float(self.label.text())
         self.label.setText('')
 
     def mul_1(self):
-        self.operation='*'
-        self.operand_1=float(self.label.text())
+        self.operation = '*'
+        self.operand_1 = float(self.label.text())
         self.label.setText('')
 
     def step_1(self):
@@ -189,24 +186,26 @@ class Calculator (QWidget):
         self.label.setText('')
 
     def ravno(self):
-        self.operand_2=float(self.label.text())
-        if self.operation=='+':
-            self.result=self.operand_1 + self.operand_2
-        elif self.operation=='-':
-            self.result=self.operand_1 - self.operand_2
-        elif self.operation=='*':
-            self.result=self.operand_1 * self.operand_2
-        elif self.operation=='/':
-            if self.operand_2 ==0:
-                self.rezult='error'
+        self.operand_2 = float(self.label.text())
+        if self.operation == '+':
+            self.rezult = self.operand_1 + self.operand_2
+        if self.operation == '-':
+            self.rezult = self.operand_1 - self.operand_2
+        if self.operation == '*':
+            self.rezult = self.operand_1 * self.operand_2
+        if self.operation == '^':
+            self.rezult = self.operand_1 ** self.operand_2
+        if self.operation == '/':
+            if self.operand_2 == 0:
+                self.rezult = 'error'
             else:
                 self.rezult = self.operand_1 / self.operand_2
-        elif self.operation=='^':
-            self.result=self.operand_1 ^ self.operand_2
-        elif self.operation == '√':
-            self.rezult=self.operand_1**(1/self.operand_2)
+        if self.operation == '√':
+            self.rezult = self.operand_1 ** (1 / self.operand_2)
+        self.label.setText(str(self.rezult))
 
-        self.label.setText(str(self.result))
+    def clean(self):
+        self.label.setText('')
 
 
 if __name__ == '__main__':
@@ -214,4 +213,3 @@ if __name__ == '__main__':
     ex = Calculator()
     ex.show()
     sys.exit(app.exec())
-
