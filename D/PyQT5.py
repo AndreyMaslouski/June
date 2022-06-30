@@ -100,6 +100,10 @@ class Calculator(QWidget):
         self.divo.resize(50, 50)
         self.divo.move(60, 375)
 
+        self.kvadr = QPushButton('x²', self)
+        self.kvadr.resize(50, 50)
+        self.kvadr.move(115, 375)
+
         self.num_1.clicked.connect(self.one)
         self.num_2.clicked.connect(self.two)
         self.num_3.clicked.connect(self.three)
@@ -120,6 +124,7 @@ class Calculator(QWidget):
         self.c.clicked.connect(self.clean)
         self.proc.clicked.connect(self.proc_1)
         self.divo.clicked.connect(self.div_2)
+        self.kvadr.clicked.connect(self.kvadr_1)
 
     def enterValue(self):
         if self.label.text() == '0':
@@ -206,6 +211,11 @@ class Calculator(QWidget):
         self.operand_1 = int(self.label.text())
         self.label.setText('')
 
+    def kvadr_1(self):
+        self.operation = 'x²'
+        self.operand_1 = float(self.label.text())
+        self.label.setText('')
+
 
     def ravno(self):
         self.operand_2 = float(self.label.text())
@@ -231,6 +241,8 @@ class Calculator(QWidget):
                 self.rezult = 'error'
             else:
                 self.rezult = self.operand_1 // self.operand_2
+        if self.operation == 'x²':
+            self.rezult = self.operand_1 * self.operand_1
 
         self.label.setText(str(self.rezult))
 
