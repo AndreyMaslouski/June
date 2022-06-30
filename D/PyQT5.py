@@ -12,7 +12,7 @@ class Calculator(QWidget):
         self.operand_2 = []
 
     def initUI(self):
-        self.setGeometry(300, 300, 225, 370)
+        self.setGeometry(300, 300, 275, 425)
         self.setWindowTitle("Калькулятор")
 
         self.label = QLabel(self)
