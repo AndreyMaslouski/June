@@ -96,6 +96,10 @@ class Calculator(QWidget):
         self.proc.resize(50, 50)
         self.proc.move(5, 375)
 
+        self.divo = QPushButton('//', self)
+        self.divo.resize(50, 50)
+        self.divo.move(60, 375)
+
         self.num_1.clicked.connect(self.one)
         self.num_2.clicked.connect(self.two)
         self.num_3.clicked.connect(self.three)
@@ -115,6 +119,7 @@ class Calculator(QWidget):
         self.ravn.clicked.connect(self.ravno)
         self.c.clicked.connect(self.clean)
         self.proc.clicked.connect(self.proc_1)
+        self.divo.clicked.connect(self.div_2)
 
     def enterValue(self):
         if self.label.text() == '0':
@@ -196,6 +201,11 @@ class Calculator(QWidget):
         self.operand_1 = float(self.label.text())
         self.label.setText('')
 
+    def div_2(self):
+        self.operation = '//'
+        self.operand_1 = int(self.label.text())
+        self.label.setText('')
+
 
     def ravno(self):
         self.operand_2 = float(self.label.text())
@@ -216,6 +226,11 @@ class Calculator(QWidget):
             self.rezult = self.operand_1 ** (1 / self.operand_2)
         if self.operation == '%':
             self.rezult = self.operand_1/100 * self.operand_2
+        if self.operation == '//':
+            if self.operand_2 == 0:
+                self.rezult = 'error'
+            else:
+                self.rezult = self.operand_1 // self.operand_2
 
         self.label.setText(str(self.rezult))
 
