@@ -2,14 +2,21 @@
 import pygame
 
 pygame.init()
+white = (255,255,255)
+blue = (0,0,255)
+red = (255,0,0)
+
 dis = pygame.display.set_mode((400,300))
 
 pygame.display.set_caption("Snake")
 
-blue = (0,0,255)
-red = (255,0,0)
+game_over = False
 
-game_over = True
+x1 = 300
+y1 = 400
+
+x1_change = 0
+y1_change = 0
 
 while not game_over:
     for event in pygame.event.get():
