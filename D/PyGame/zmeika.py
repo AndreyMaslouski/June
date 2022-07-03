@@ -6,7 +6,7 @@ white = (255, 255, 255)
 blue = (0, 0, 255)
 red = (255, 0, 0)
 
-dis = pygame.display.set_mode((400, 300))
+dis = pygame.display.set_mode((800, 500))
 
 pygame.display.set_caption("Snake")
 
@@ -18,13 +18,15 @@ y1 = 400
 x1_change = 0
 y1_change = 0
 
+clock = pygame.time.Clock()
+
 while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_over = True
 
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.L_LEFT:
+            if event.key == pygame.K_LEFT:
                 x1_change = -10
                 y1_change = 0
             elif event.key == pygame.K_RIGHT:
@@ -36,9 +38,14 @@ while not game_over:
             elif event.key == pygame.K_DOWN:
                 x1_change = 0
                 y1_change = 10
+    x1+=x1_change
+    y1+=y1_change
+    dis.fill(white)
 
-        pygame.draw.rect(dis, blue, (200, 150, 10, 10))
-        pygame.display.update()
+    pygame.draw.rect(dis, blue, [x1, y1, 10, 10])
+    pygame.display.update()
+
+    clock.tick(30)
 
 pygame = quit()
 quit()
