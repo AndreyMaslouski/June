@@ -13,13 +13,14 @@ import sys
 import random
 
 pygame.init()
+
 white = (255, 255, 255)
 blue = (0, 0, 255)
 blue_1 = (204, 255, 255)
 Red = (224,0,0)
 Header_Color = (0,204,153)
 Snake_Color = (0,102,0)
-red = (224, 0, 0)
+
 
 Size_Block = 20
 Frame_Color = (0, 255, 204)
@@ -34,6 +35,7 @@ dis = pygame.display.set_mode(size)
 
 pygame.display.set_caption("Snake")
 timer = pygame.time.Clock()
+courier = pygame.font.SysFont('courier',36)
 
 class SnakeBlock:
     def __init__(self,x,y):
@@ -41,12 +43,12 @@ class SnakeBlock:
         self.y = y
 
     def is_inside(self):
-        return 0<=self.x<Size_Block and 0<=self.y<Size_Block
+        return 0<=self.x<Count_Blocks and 0<=self.y<Count_Blocks
 
     def __eg__(self,other):
         return isinstance(other,SnakeBlock) and self.x == other.x and self.y == other.y
 
-def get_random_empty_block():
+def get_randon_empty_block():
     x = random.randint(0,Count_Blocks-1)
     y = random.randint(0,Count_Blocks - 1)
     empty_block = SnakeBlock(x,y)
@@ -64,19 +66,14 @@ def draw_block(color,row,column):
 
 game_over = False
 
-x1 = 300
-y1 = 400
-
-x1_change = 0
-y1_change = 0
-
-clock = pygame.time.Clock()
 
 snake_blocks= [SnakeBlock(9,8),SnakeBlock(9,9),SnakeBlock(9,10)]
-apple = get_random_empty_block()
+apple = get_randon_empty_block()
 d_row = 0
 d_col = 1
 total = 0
+speed = 1
+
 
 while not game_over:
     for event in pygame.event.get():
@@ -101,9 +98,12 @@ while not game_over:
 
     dis.fill(Frame_Color)
     pygame.draw.rect(dis, Header_Color, [0, 0, size[0], Header_Margin])
-    if x1 >= 800 or x1 < 0 or y1 >= 600 or y1 < 0:
-        game_over = True
 
+
+    text_total = courier.render(f"Total: {total}", 0, white)
+    text_speed = courier.render(f"Speed: {speed}", 0, white)
+    dis.blit(text_total, (Size_Block,Size_Block))
+    dis.blit(text_speed, (Size_Block+230, Size_Block))
 
     for row in range(Count_Blocks):
         for column in range(Count_Blocks):
@@ -119,14 +119,16 @@ while not game_over:
         print('crash')
         pygame.quit()
         sys.exit()
+
     draw_block(Red,apple.x,apple.y)
     for block in snake_blocks:
         draw_block(Snake_Color,block.x,block.y)
 
     if apple == head:
         total +=1
+        speed = total//5 + 1
         snake_blocks.append(apple)
-        apple = get_random_empty_block()
+        apple = get_randon_empty_block()
 
     new_head = SnakeBlock(head.x + d_row, head.y + d_col)
     snake_blocks.append(new_head)
@@ -134,19 +136,9 @@ while not game_over:
 
 
     pygame.display.flip()
-    timer.tick(3)
+    timer.tick(3+speed)
 
-# while True > if apple==head
 
-    x1 += x1_change
-    y1 += y1_change
-
-    pygame.display.flip()
-
-    pygame.draw.rect(dis, blue, [x1, y1, 10, 10])
-    pygame.display.update()
-
-    clock.tick(30)
 
 pygame = quit()
 quit()
