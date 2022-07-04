@@ -43,6 +43,17 @@ class SnakeBlock:
     def is_inside(self):
         return 0<=self.x<Size_Block and 0<=self.y<Size_Block
 
+    def __eg__(self,other):
+        return isinstance(other,SnakeBlock) and self.x == other.x and self.y == other.y
+
+def get_random_empty_block():
+    x = random.randint(0,Count_Blocks-1)
+    y = random.randint(0,Count_Blocks - 1)
+    empty_block = SnakeBlock(x,y)
+    while empty_block in snake_blocks:
+        empty_block.x = random.randint(0,Count_Blocks-1)
+        empty_block.y = random.randint(0,Count_Blocks - 1)
+    return empty_block
 
 def draw_block(color,row,column):
     pygame.draw.rect(dis, color, [Size_Block + column * Size_Block + Margin * (column + 1),
@@ -62,9 +73,10 @@ y1_change = 0
 clock = pygame.time.Clock()
 
 snake_blocks= [SnakeBlock(9,8),SnakeBlock(9,9),SnakeBlock(9,10)]
-
+apple = get_random_empty_block()
 d_row = 0
 d_col = 1
+total = 0
 
 while not game_over:
     for event in pygame.event.get():
@@ -107,8 +119,14 @@ while not game_over:
         print('crash')
         pygame.quit()
         sys.exit()
+    draw_block(Red,apple.x,apple.y)
     for block in snake_blocks:
         draw_block(Snake_Color,block.x,block.y)
+
+    if apple == head:
+        total +=1
+        snake_blocks.append(apple)
+        apple = get_random_empty_block()
 
     new_head = SnakeBlock(head.x + d_row, head.y + d_col)
     snake_blocks.append(new_head)
@@ -116,7 +134,9 @@ while not game_over:
 
 
     pygame.display.flip()
-    timer.tick(2)
+    timer.tick(3)
+
+# while True > if apple==head
 
     x1 += x1_change
     y1 += y1_change
