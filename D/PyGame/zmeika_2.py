@@ -15,6 +15,7 @@ white = (255, 255, 255)
 blue = (0, 0, 255)
 blue_1 = (204, 255, 255)
 Header_Color = (0,204,153)
+Snake_Color = (0,102,0)
 red = (255, 0, 0)
 
 Size_Block = 20
@@ -29,6 +30,11 @@ print(size)
 dis = pygame.display.set_mode((500, 600))
 
 pygame.display.set_caption("Snake")
+
+class SnakeBlock:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
 
 def draw_block(color,row,column):
     pygame.draw.rect(dis, color, [Size_Block + column * Size_Block + Margin * (column + 1),
@@ -47,6 +53,7 @@ y1_change = 0
 
 clock = pygame.time.Clock()
 
+snake_block= [SnakeBlock(9,9)]
 while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -84,10 +91,11 @@ while not game_over:
                 color = white
 
             draw_block(color,row,column)
-            # pygame.draw.rect(dis, color, [Size_Block + column * Size_Block + Margin * (column+1),
-            #                               Header_Margin + Size_Block + row*Size_Block + Margin * (row+1),
-            #                               Size_Block,
-            #                               Size_Block])
+
+
+    for block in snake_block:
+        draw_block(Snake_Color,block.x,block.y)
+
 
     pygame.display.flip()
 
