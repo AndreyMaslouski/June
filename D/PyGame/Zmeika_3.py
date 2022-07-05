@@ -18,4 +18,18 @@ dirs = {'W':True,'S':True,'A':True,'D':True}
 score = 0
 speed_count, snake_speed = 0,10
 
+pygame.init()
+surface = pygame.display.set_mode([RES,RES])
+clock = pygame.time.Clock()
+font_score = pygame.font.SysFont('Arial',26,bold = True)
+font_end = pygame.font.SysFont('Arial',66,bold = True)
+img = pygame.image.load('5.jpg').convert()
+
+# закрытие игры
+
+def close_game():
+    for event in pygame.event.get():
+        if every.type == pygame.QUIT:
+            exit()
+
 
