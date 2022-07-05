@@ -15,8 +15,7 @@ import random
 pygame.init()
 
 white = (255, 255, 255)
-blue = (0, 0, 255)
-blue_1 = (204, 255, 255)
+blue = (204, 255, 255)
 Red = (224,0,0)
 Header_Color = (0,204,153)
 Snake_Color = (0,102,0)
@@ -108,7 +107,7 @@ while not game_over:
     for row in range(Count_Blocks):
         for column in range(Count_Blocks):
             if (row + column) % 2 == 0:
-                color = blue_1
+                color = blue
             else:
                 color = white
 
