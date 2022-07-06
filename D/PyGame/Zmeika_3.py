@@ -32,4 +32,34 @@ def close_game():
         if every.type == pygame.QUIT:
             exit()
 
+# игра
+while True:
+
+    #  Отрисовка змеи и яблок
+    [pygame.draw.rect(surface,pygame.Color('green'),(i,j,SIZE - 1, SIZE-1)) for i,j in snake]
+    pygame.draw.rect(surface,pygame.Color('red'),(*apple,SIZE,SIZE))
+
+    # Отрисовка очков
+    render_score = font_score.render(f'SCORE: {score}',1,pygame.Color('orange'))
+    surface.blit(render_score,(5,5))
+
+    # Движение змеи
+    speed_count +=1
+    if not speed_count % snake_speed:
+        x +=dx*SIZE
+        y +=dy*SIZE
+        snake.append((x,y))
+        snake = snake[-length:]
+
+    # Поедание еды
+    if snake[-1] == apple:
+        apple = randrange(SIZE),RES - SIZE,SIZE),randrange(SIZE),RES - SIZE,SIZE)
+        length +=1
+        score +=1
+        snake_speed -=1
+        snake_speed = max(snake_speed,4)
+
+    #  Конец игры
+    if x<0 or x>RES-SIZE or y<0 or y>RES-SIZE or len(snake) !=len(set(snake)):
+
 
